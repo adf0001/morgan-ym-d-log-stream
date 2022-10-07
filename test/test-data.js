@@ -9,10 +9,22 @@ module.exports = {
 
 		var path = require('path');
 
+		/*
+		create a log stream
+		createLogStream( logDir )
+		*/
 		var logStream = morgan_ym_d_log_stream(path.join(__dirname, "log"));
 
+		/*
+		write a string
+			.write(str)
+		*/
 		logStream.write("test, " + (new Date()).toLocaleString() + "\n");
 
+		/*
+		get current log file path
+			.currentFilePath()
+		*/
 		var fpath = logStream.currentFilePath()
 		console.log(fpath);
 

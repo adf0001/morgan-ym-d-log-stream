@@ -5,12 +5,20 @@
 var fs = require('fs');
 var path = require('path');
 
+/*
+create a log stream
+createLogStream( logDir )
+*/
 module.exports = function (logDir) {
 	var logDate = -1;
 	var logStream = null;
 	var logFilePath = null;
 
 	return {
+		/*
+		write a string
+			.write(str)
+		*/
 		write: (str) => {
 			process.stdout.write(str);
 
@@ -37,6 +45,10 @@ module.exports = function (logDir) {
 			logStream.write(str);
 		},
 
+		/*
+		get current log file path
+			.currentFilePath()
+		*/
 		currentFilePath: () => logFilePath,
 	}
 }
