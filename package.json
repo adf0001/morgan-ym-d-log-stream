@@ -1,0 +1,24 @@
+{
+  "name": "morgan-ym-d-log-stream",
+  "version": "1.0.0",
+  "description": "A stream tool, mainly a plugin for morgan, to save log to file dir/YYYY/M/YYYY-MM-DD.log",
+  "main": "morgan-ym-d-log-stream.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "morgan",
+    "stream",
+    "YMD"
+  ],
+  "author": "fwg",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adf0001/morgan-ym-d-log-stream.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adf0001/morgan-ym-d-log-stream/issues"
+  },
+  "homepage": "https://github.com/adf0001/morgan-ym-d-log-stream#readme"
+}
