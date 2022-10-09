@@ -6,13 +6,19 @@ var fs = require('fs');
 var path = require('path');
 
 /*
+.createLogStream( logDir, options )
+
 create a log stream
-createLogStream( logDir )
+
+	options
+		consoleMax
+			max length of console output string
 */
-module.exports = function (logDir) {
+module.exports = function (logDir, options) {
 	var logDate = -1;
 	var logStream = null;
 	var logFilePath = null;
+	var consoleMax = options?.consoleMax;
 
 	return {
 		/*
@@ -20,7 +26,11 @@ module.exports = function (logDir) {
 			.write(str)
 		*/
 		write: (str) => {
-			process.stdout.write(str);
+			if (consoleMax > 0 && str?.length > consoleMax) {
+				var sEnd = str.match(/\s+$/)[0];	//may have line break
+				process.stdout.write(str.slice(0, consoleMax - 3 - (sEnd?.length || 0)) + "..." + sEnd);
+			}
+			else process.stdout.write(str);
 
 			var dtNow = new Date();
 			if (dtNow.getDate() !== logDate) {
